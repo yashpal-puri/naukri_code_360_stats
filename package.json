@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "install": "npx puppeteer browsers install chrome && npm install",
     "start": "node index.js"
   },
   "author": "Yashpal Puri",
