@@ -12,7 +12,7 @@ app.get('/', async (req, res) => {
                 error: `Please include your profile username in the url`,
             });                
             res.setHeader("Content-Type", "image/svg+xml");
-            res.send(svg);
+            return res.send(svg);
         }
         
         (async () => {
@@ -41,13 +41,13 @@ app.get('/', async (req, res) => {
                 };
                 const svg = generateStats(scrapedData);                
                 res.setHeader("Content-Type", "image/svg+xml");
-                res.send(svg);                
+                return res.send(svg);                
             } catch (error) {
                 const svg = generateStats({
                     error: `Error fetching data for ${username}: ${error.message}`,
                 });   
                 res.setHeader("Content-Type", "image/svg+xml");
-                res.send(svg);                
+                return res.send(svg);                
             }
           })();   
 });
