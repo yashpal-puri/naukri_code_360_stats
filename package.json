@@ -1,0 +1,16 @@
+{
+  "name": "naukri_code_360_stats",
+  "version": "1.0.0",
+  "description": "you can show your dsa stats of code studio using this api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Yashpal Puri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "puppeteer": "^22.6.3"
+  }
+}
