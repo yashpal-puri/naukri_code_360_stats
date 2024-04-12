@@ -16,3 +16,12 @@ https://naukri-code-360-stats.onrender.com/?username=<your_username>
 
 
 ##### Don't forget to include your username in the url
+
+## About the Tech Stack
+
+#### I have used the Nodejs & Expressjs to create the server
+#### I am implementing dynamic web scrapping with the help of puppeteer 
+#### Last but not the least the images (in response) are being created by canvas library
+
+
+# ThankYou 
