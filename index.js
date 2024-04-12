@@ -1,6 +1,6 @@
 import express from 'express';
 import puppeteer from 'puppeteer';
-import generateStats from './generate_svg.js';
+import generateStatsJpeg from './generate_jpg.js';
 import dotenv from 'dotenv';
 
 dotenv.config({
@@ -12,13 +12,13 @@ const app = express();
 app.get('/', async (req, res) => {    
         const username=req.query.username;
         const url = "https://www.naukri.com/code360/profile/"+username;
-        let svg;
+        let img;
         if (!username) {
-            svg = generateStats({
+            img = generateStatsJpeg({
                 error: `Please include your profile username in the url`,
             });                
-            res.setHeader("Content-Type", "image/svg+xml");
-            return res.send(svg);
+            res.setHeader("Content-Type", "image/jpeg");
+            return res.send(img);
         }
         
         (async () => {
@@ -53,17 +53,17 @@ app.get('/', async (req, res) => {
                     hard: values[3],
                     ninja: values[4],
                 };
-                svg = generateStats(scrapedData);              
+                img = generateStatsJpeg(scrapedData);              
                                
             } catch (error) {
-                svg = generateStats({
+                img = generateStatsJpeg({
                     error: `Error fetching data for ${username}: ${error.message}`,
                 });                           
             }
             finally{
                 await browser.close();
-                res.setHeader("Content-Type", "image/svg+xml");
-                return res.send(svg); 
+                res.setHeader("Content-Type", "image/jpeg");
+                return res.send(img);   
             }
           })();   
 });
